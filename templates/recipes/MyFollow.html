@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+{% load static %}
+{% load recipe_filters %}
+
+{% block title %}Мои подписки{% endblock %}
+
+
+{% block css_block %}
+    <link rel="stylesheet" href="{% static 'css/pages/myFollow.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<main class="main container">
+    {% csrf_token %}
+    <div class="main__header">
+        <h1 class="main__title">Мои подписки</h1>
+    </div>
+    <div class="card-list">
+        {% for author in page %}
+            {% if author.recipes.exists %}
+                <div class="card-user" data-author="{{ author.id }}">
+                    <div class="card-user__header">
+                        <h2 class="card-user__title">{{ author|display_name }}</h2>
+                    </div>
+                    <div class="card-user__body">
+                        <ul class="card-user__items">
+                            {% for recipe in author.recipes.all|slice:":3" %}
+                                <li class="card-user__item">
+                                    <div class="recipe">
+                                        {% load thumbnail %}
+                                        {% thumbnail recipe.image "800x800" crop="center" upscale=True as im %}
+                                            <img src="{{ im.url }}" alt="какой-то-текст" class="recipe__image">
+                                        {% endthumbnail %}
+                                        <h3 class="recipe__title">{{ recipe.title }}</h3>
+                                        <p class="recipe__text"><span class="icon-time"></span> {{ recipe.prep_time }} мин.</p>
+                                    </div>
+                                </li>
+                            {% endfor %}
+                            {% if author.recipes.all|length > 3 %}
+                                <li class="card-user__item">
+                                    <a href="{% url 'profile' username=author.username %}" class="card-user__link link">Еще {{ author.recipes.all|slice:"3:"|length }} рецептов...</a>
+                                </li>
+                            {% endif %}
+                        </ul>
+                    </div>
+                    <div class="card-user__footer">
+                        {% if author|is_subscribe:user %}
+                            <button class="button button_style_light-blue button_size_auto" name="subscribe">Отписаться</button>
+                        {% else %}
+                            <button class="button button_style_light-blue button_size_auto" name="subscribe" data-out>Подписаться</button>
+                        {% endif %}
+                    </div>
+                </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+
+    {% if page.has_other_pages %}
+        {% include "includes/paginator.html" with items=page paginator=paginator %}
+    {% endif %}
+</main>
+
+{% endblock %}
+
+{% block js_block %}
+
+<script src="{% static 'js/config/config.js' %}"></script>
+<script src="{% static 'js/components/MainCards.js' %}"></script>
+<script src="{% static 'js/components/MyFollow.js' %}"></script>
+<script src="{% static 'js/components/Subscribe.js' %}"></script>
+<script src="{% static 'js/components/Header.js' %}"></script>
+<script src="{% static 'js/api/Api.js' %}"></script>
+<script src="{% static 'myFollow.js' %}"></script>
+
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Технологии{% endblock %}
+
+{% block css_block %}
+    <link rel="stylesheet" href="{% static 'css/pages/index.css' %}">
+    <link rel="stylesheet" href="{% static 'css/pages/single.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<main class="main container">
+    <div class="single-card">
+        <div class="single-card__info">
+            <div class="single-card__header-info">
+                <h1 class="single-card__title">Для создания сайта были использованы:</h1>
+            </div>
+                
+            <p>
+                <a title="Django" href="https://www.djangoproject.com/start/"><img src="/static/about/Django.png" alt="Фотография 1" width="150" height="150"></a>
+                <a title="Docker" href="https://www.docker.com/"><img src="/static/about/Docker.png" alt="Фотография 2" width="150" height="150"></a>
+                <a title="JavaScript" href="https://www.javascript.com/"><img src="/static/about/JS.png" alt="Фотография 3" width="150" height="150"></a>
+                <a title="Nginx" href="https://nginx.org/ru/"><img src="/static/about/Nginx.png" alt="Фотография 4" width="150" height="150"></a>
+                <a title="PostgreSQL" href="https://www.postgresql.org/"><img src="/static/about/PostgreSQL.jpg" alt="Фотография 5" width="150" height="150"></a>
+                <a title="Python" href="https://www.python.org/"><img src="/static/about/Python.jpg" alt="Фотография 6" width="150" height="150"></a>
+            </p>
+        </div>
+    </div>
+</main>
+
+{% endblock %}

@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Об авторе проекта{% endblock %}
+
+{% block css_block %}
+    <link rel="stylesheet" href="{% static 'css/pages/index.css' %}">
+    <link rel="stylesheet" href="{% static 'css/pages/single.css' %}">
+    <link rel="stylesheet" href="{% static 'css/about/about.css' %}">
+{% endblock %}
+
+
+{% block content %}
+
+<main class="main container">
+    <div class="single-card">
+        {% load thumbnail %}
+        <img src="/static/about/about_author.jpg" alt="about_author"
+             class="single-card__image">
+        
+        <div class="single-card__info">
+            <div class="single-card__header-info">
+                <h1 class="single-card__title">Привет!</h1>
+            </div>
+                
+            <div class="single-card__section">
+                <p class=" single-card__section-text">Меня зовут Александр Рогулин, я начинающий python-разработчик и этот сайт был создан в рамках дипломного проекта курсов Яндекс.Практикума</p>
+                <p class=" single-card__section-text">Здесь вы можете создавать рецепты блюд, делиться ими с другими пользователями и многое другое</p>
+                <p class=" single-card__section-text">Чтобы ознакомиться со всем функционалом, пожалуйста зарегистрируйтесь и войдите в свою учетную запись.</p>
+                <p class=" single-card__section-text">Или воспользуйтесь тестовым аккаунтом:</p>
+                <p class=" single-card__section-text">Имя: test_user, пароль: user1234</p>
+                
+                <div class="social github">
+                    <a href="https://github.com/AlexandrRogulin" target="_blank"><i class="fa fa-github fa-2x"></i></a>
+                </div>
+                <div class="social instagram">
+                    <a href="https://www.instagram.com/rogul_in/" target="_blank"><i class="fa fa-instagram fa-2x"></i></a>
+                </div>
+                <div class="social vk">
+                    <a href="https://vk.com/rogu1in" target="_blank"><i class="fa fa-vk fa-2x"></i></a>    
+                </div>
+                <div class="social linkedin">
+                    <a href="https://vk.com/rogu1in" target="_blank"><i class="fa fa-linkedin fa-2x"></i></a>
+                </div>
+                <div class="social telegram">
+                    <a href="https://t.me/rogulal" target="_blank"><i class="fa fa-paper-plane fa-2x"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+{% endblock %}
