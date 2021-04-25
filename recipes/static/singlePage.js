@@ -47,5 +47,3 @@ const singleCard = new SingleCard(container, '.single-card', header, api, true,{
     subscribe
 });
 singleCard.addEvent();
-
-

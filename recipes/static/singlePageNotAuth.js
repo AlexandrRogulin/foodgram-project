@@ -23,5 +23,3 @@ const singleCard = new SingleCard(container, '.single-card', header, api, false,
     purchases,
 });
 singleCard.addEvent();
-
-
