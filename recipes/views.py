@@ -9,7 +9,6 @@ from .forms import RecipeForm
 from .models import Recipe, RecipeIngredient
 from .utils import edit_recipe, save_recipe
 
-
 User = get_user_model()
 TAGS = ["breakfast", "lunch", "dinner"]
 
