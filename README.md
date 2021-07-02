@@ -4,7 +4,7 @@
 <a target="_blank" href="https://radikal.ru"><img src="https://d.radikal.ru/d31/2104/9f/03eddc263227.gif" /></a>
 
 
-Посмотреть его можно [тут](http://84.201.176.153/?page=1&tag=Завтрак&tag=Обед&tag=Ужин)
+Посмотреть его можно [тут](http://rogul.pythonanywhere.com/?tag=Завтрак&tag=Обед&tag=Ужин)
 
 ## Установка
 
